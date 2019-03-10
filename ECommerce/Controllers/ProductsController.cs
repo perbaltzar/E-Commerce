@@ -61,6 +61,19 @@ namespace ECommerce.Controllers
             }
             return BadRequest();
         }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(List<Product>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<Product>), StatusCodes.Status404NotFound)]
+        public IActionResult Delete(int id)
+        {
+            var deleteIsSuccessful = this.productsService.Delete(id);
+           if (deleteIsSuccessful)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
     }
 
 }

@@ -44,5 +44,13 @@ namespace ECommerce.Repositories
 
             }
         }
+
+        public void Delete(int id)
+        {
+            using (var connection = new MySqlConnection(this.connectionString))
+            {
+                connection.Execute("DELETE * FROM products WHERE id = @id", new { id });
+            }
+        }
     }
 }

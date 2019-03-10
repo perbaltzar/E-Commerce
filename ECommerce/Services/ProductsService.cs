@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Transactions;
 using ECommerce.Models;
 using ECommerce.Repositories;
 
@@ -7,16 +8,16 @@ namespace ECommerce.Services
 {
     public class ProductsService
     {
-        private ProductsRepository productRepository;
+        private ProductsRepository productsRepository;
 
         public ProductsService(ProductsRepository productsRepository)
         {
-            this.productRepository = productsRepository;
+            this.productsRepository = productsRepository;
         }
 
         public List<Product> Get()
         {
-            return productRepository.Get();
+            return productsRepository.Get();
         }
 
         public Product Get(int id)
@@ -25,7 +26,7 @@ namespace ECommerce.Services
             {
                 return null;
             }
-            return productRepository.Get(id);
+            return producsRepository.Get(id);
 
         }
 
@@ -45,6 +46,21 @@ namespace ECommerce.Services
                 return false;
             }
             this.productRepository.Add(product);
+            return true;
+        }
+
+        public bool Delete (int id)
+        {
+            using (TransactionScope scope = new TransactionScope())
+            {
+                var deleteItem = this.productRepository.Get(id);
+                if (deleteItem == null)
+                {
+                    return false;
+                }
+                this.newsRepository.Delete(id);
+                scope.Complete();
+            }
             return true;
         }
     }

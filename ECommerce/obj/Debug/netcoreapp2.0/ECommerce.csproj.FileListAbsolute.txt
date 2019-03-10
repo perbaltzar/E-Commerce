@@ -1,0 +1,11 @@
+/Users/perbaltzar/GitHub/ECommerce/ECommerce/bin/Debug/netcoreapp2.0/ECommerce.deps.json
+/Users/perbaltzar/GitHub/ECommerce/ECommerce/bin/Debug/netcoreapp2.0/ECommerce.runtimeconfig.json
+/Users/perbaltzar/GitHub/ECommerce/ECommerce/bin/Debug/netcoreapp2.0/ECommerce.runtimeconfig.dev.json
+/Users/perbaltzar/GitHub/ECommerce/ECommerce/bin/Debug/netcoreapp2.0/ECommerce.dll
+/Users/perbaltzar/GitHub/ECommerce/ECommerce/bin/Debug/netcoreapp2.0/ECommerce.pdb
+/Users/perbaltzar/GitHub/ECommerce/ECommerce/obj/Debug/netcoreapp2.0/ECommerce.csprojAssemblyReference.cache
+/Users/perbaltzar/GitHub/ECommerce/ECommerce/obj/Debug/netcoreapp2.0/ECommerce.csproj.CoreCompileInputs.cache
+/Users/perbaltzar/GitHub/ECommerce/ECommerce/obj/Debug/netcoreapp2.0/ECommerce.AssemblyInfoInputs.cache
+/Users/perbaltzar/GitHub/ECommerce/ECommerce/obj/Debug/netcoreapp2.0/ECommerce.AssemblyInfo.cs
+/Users/perbaltzar/GitHub/ECommerce/ECommerce/obj/Debug/netcoreapp2.0/ECommerce.dll
+/Users/perbaltzar/GitHub/ECommerce/ECommerce/obj/Debug/netcoreapp2.0/ECommerce.pdb

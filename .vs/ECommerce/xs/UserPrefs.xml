@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{F38668C7-71E8-422E-8ECC-53FC2A8C0FBA}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ECommerce/Models/Product.cs">
+    <Files>
+      <File FileName="ECommerce/Controllers/ProductsController.cs" Line="51" Column="9" />
+      <File FileName="ECommerce/Services/ProductsService.cs" Line="32" Column="42" />
+      <File FileName="ECommerce/Repositories/ProductsRepository.cs" Line="42" Column="40" />
+      <File FileName="ECommerce/Controllers/ValuesController.cs" Line="21" Column="14" />
+      <File FileName="ECommerce/Models/Product.cs" Line="6" Column="15" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.ECommerce PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

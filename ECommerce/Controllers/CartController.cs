@@ -35,8 +35,8 @@ namespace ECommerce.Controllers
 
 
         [HttpPost]
-        [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(void), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Add(int productId, int cartId = 0)
         {   
             // Default value zero if no cartId excist in LocalStorage

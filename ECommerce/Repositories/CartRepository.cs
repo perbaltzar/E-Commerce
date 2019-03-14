@@ -29,11 +29,13 @@ namespace ECommerce.Repositories
         }
 
         // Creating a new cart if not excisting
-        public int Create(int productId)
+        public int Create()
         {
             using (var connection = new MySqlConnection(this.connectionString))
             {
-                return connection.Execute("INSERT INTO Carts OUTPUT Inserted.ID DEFAULT VALUES ");
+                connection.Execute("INSERT INTO Carts (TotalPrice) VALUES (0)");
+                var number =  connection.QuerySingleOrDefault<int>("SELECT Id FROM Carts ORDER BY Id DESC LIMIT 1");
+                return number;
             }
         }
 
@@ -41,8 +43,8 @@ namespace ECommerce.Repositories
         public void Add (int productId, int cartId)
         {
             using (var connection = new MySqlConnection(this.connectionString))
-            {
-                var item = connection.Execute("INSERT INTO CartItems (CartId, ProductId) VALUES (@cartId, @productId)", new { productId, cartId });
+            {   
+                connection.Execute("INSERT INTO CartItems (CartId, ProductId) VALUES (@cartId, @productId)", new { cartId, productId });
             }
         }
 

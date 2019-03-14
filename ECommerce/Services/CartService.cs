@@ -22,7 +22,7 @@ namespace ECommerce.Services
         public Cart Create(int productId)
         {
             // Creating a cart
-            var cartId = cartRepository.Create(productId);
+            var cartId = cartRepository.Create();
             // Adding the item to the cart
             cartRepository.Add(productId, cartId);
             // Selecting cart and items in it. 

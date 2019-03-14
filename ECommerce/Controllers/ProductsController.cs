@@ -52,7 +52,7 @@ namespace ECommerce.Controllers
         [HttpPost]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(void), StatusCodes.Status400BadRequest)]
-        public IActionResult Post([FromBody]Product product)
+        public IActionResult Add([FromBody]Product product)
         {
             var postIsSuccessful = this.productsService.Add(product);
             if (postIsSuccessful)

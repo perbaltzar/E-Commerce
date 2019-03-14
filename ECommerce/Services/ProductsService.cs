@@ -26,7 +26,7 @@ namespace ECommerce.Services
             {
                 return null;
             }
-            return producsRepository.Get(id);
+            return productsRepository.Get(id);
 
         }
 
@@ -45,7 +45,7 @@ namespace ECommerce.Services
             {
                 return false;
             }
-            this.productRepository.Add(product);
+            this.productsRepository.Add(product);
             return true;
         }
 
@@ -53,15 +53,15 @@ namespace ECommerce.Services
         {
             using (TransactionScope scope = new TransactionScope())
             {
-                var deleteItem = this.productRepository.Get(id);
+                var deleteItem = this.productsRepository.Get(id);
                 if (deleteItem == null)
                 {
                     return false;
                 }
-                this.newsRepository.Delete(id);
+                this.productsRepository.Delete(id);
                 scope.Complete();
             }
-            return true;
+            return true;    
         }
     }
 }

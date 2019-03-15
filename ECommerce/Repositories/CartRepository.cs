@@ -40,20 +40,20 @@ namespace ECommerce.Repositories
         }
 
         // Adding item to Cart
-        public void Add (int productId, int cartId)
+        public void Add (int productId, int cartId, int quantity)
         {
             using (var connection = new MySqlConnection(this.connectionString))
             {   
-                connection.Execute("INSERT INTO CartItems (CartId, ProductId) VALUES (@cartId, @productId)", new { cartId, productId });
+                connection.Execute("INSERT INTO CartItems (CartId, ProductId, Quantity) VALUES (@cartId, @productId, @quantity)", new { cartId, productId, quantity});
             }
         }
 
         // Removing an item from Cart
-        public void Remove (int id)
+        public void Remove (int productId, int cartId)
         {
             using (var connection = new MySqlConnection(this.connectionString))
             {
-                connection.Execute("DELETE FROM CartItems WHERE id = @id", new { id });
+                connection.Execute("DELETE FROM CartItems WHERE ProductId = @productId AND CartId = @cartId", new { productId, cartId });
             }
         }
 

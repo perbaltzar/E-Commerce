@@ -37,20 +37,29 @@ namespace ECommerce.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Add(int productId, int cartId = 0)
-        {   
-            // Default value zero if no cartId excist in LocalStorage
-            if (cartId == 0)
+        public IActionResult Add([FromBody]CartItem cartItem)
+        {
+
+            if (cartItem.CartId < 1)
             {
-                cartService.Create(productId);
-                return Ok();
+                var cart = cartService.Create(cartItem.ProductId, cartItem.Quantity);
+                return Ok(cart);
             }
+            // Default value zero if no cartId excist in LocalStorage
             else
             {
-                cartService.Add(productId, cartId);
-                return Ok();
+                var cart = cartService.Add(cartItem.ProductId, cartItem.CartId, cartItem.Quantity);
+                return Ok(cart);
             }
+        }
 
+        [HttpDelete]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult Remove([FromBody]CartItem cartItem)
+        {
+            cartService.Remove(cartItem.ProductId, cartItem.CartId);
+            return Ok();
         }
     }
 }

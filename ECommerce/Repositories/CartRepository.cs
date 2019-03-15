@@ -23,7 +23,9 @@ namespace ECommerce.Repositories
             using (var connection = new MySqlConnection(this.connectionString))
             {
                 var cart = connection.QuerySingleOrDefault<Cart>("SELECT * FROM carts WHERE id = @id", new { id });
-                cart.CartItems = connection.Query<CartItem>("SELECT * FROM CartItems WHERE CartId = @id", new { id }).ToList();
+                //cart.CartItems = connection.Query<CartItem>("SELECT * FROM CartItems WHERE CartId = @id", new { id }).ToList();
+                cart.Products = connection.Query<Product>("SELECT * FROM CartItems c INNER JOIN Products p ON c.ProductId = p.Id WHERE c.CartId = @id", new { id }).ToList();
+                //cart.TotalPrice = connection
                 return cart;
             }
         }

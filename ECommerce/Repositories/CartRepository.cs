@@ -46,7 +46,9 @@ namespace ECommerce.Repositories
         {
             using (var connection = new MySqlConnection(this.connectionString))
             {   
-                connection.Execute("INSERT INTO CartItems (CartId, ProductId, Quantity) VALUES (@cartId, @productId, @quantity)", new { cartId, productId, quantity});
+                connection.Execute(
+                "INSERT INTO CartItems (CartId, ProductId, Quantity) VALUES (@cartId, @productId, @quantity)",
+                new { cartId, productId, quantity});
             }
         }
 
@@ -55,7 +57,20 @@ namespace ECommerce.Repositories
         {
             using (var connection = new MySqlConnection(this.connectionString))
             {
-                connection.Execute("DELETE FROM CartItems WHERE ProductId = @productId AND CartId = @cartId", new { productId, cartId });
+                connection.Execute(
+                "DELETE FROM CartItems WHERE ProductId = @productId AND CartId = @cartId", 
+                new { productId, cartId });
+            }
+        }
+
+        // Update an item in Cart
+        public void Update (int productId, int cartId, int quantity)
+        {
+            using (var connection = new MySqlConnection(this.connectionString))
+            {
+                connection.Execute(
+                "UPDATE CartItems SET Quantity = @quantity WHERE ProductId = @productId AND CartId = @cartId", 
+                new { quantity, productId, cartId });
             }
         }
 

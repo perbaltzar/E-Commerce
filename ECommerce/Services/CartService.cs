@@ -42,5 +42,10 @@ namespace ECommerce.Services
         {
             cartRepository.Remove(productId, cartId);
         }
+
+        public void Update(int productId, int cartId, int quantity)
+        {
+            cartRepository.Update(productId, cartId, quantity);
+        }
     }
 }

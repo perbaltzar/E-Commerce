@@ -61,5 +61,12 @@ namespace ECommerce.Controllers
             cartService.Remove(cartItem.ProductId, cartItem.CartId);
             return Ok();
         }
+
+        //ADD an update
+        public IActionResult Update(CartItem cartItem)
+        {
+            cartService.Update(cartItem.ProductId, cartItem.CartId, cartItem.Quantity);
+            return Ok();
+        }
     }
 }

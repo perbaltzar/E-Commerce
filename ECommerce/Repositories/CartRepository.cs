@@ -23,9 +23,8 @@ namespace ECommerce.Repositories
             using (var connection = new MySqlConnection(this.connectionString))
             {
                 var cart = connection.QuerySingleOrDefault<Cart>("SELECT * FROM carts WHERE id = @id", new { id });
-                //cart.CartItems = connection.Query<CartItem>("SELECT * FROM CartItems WHERE CartId = @id", new { id }).ToList();
                 cart.Products = connection.Query<Product>("SELECT * FROM CartItems c INNER JOIN Products p ON c.ProductId = p.Id WHERE c.CartId = @id", new { id }).ToList();
-                //cart.TotalPrice = connection
+
                 return cart;
             }
         }
@@ -35,20 +34,20 @@ namespace ECommerce.Repositories
         {
             using (var connection = new MySqlConnection(this.connectionString))
             {
-                connection.Execute("INSERT INTO Carts (TotalPrice) VALUES (0)");
-                var number =  connection.QuerySingleOrDefault<int>("SELECT Id FROM Carts ORDER BY Id DESC LIMIT 1");
-                return number;
+                connection.Execute("INSERT INTO Carts (Ordered) VALUES (false)");
+                var cartId =  connection.QuerySingleOrDefault<int>("SELECT Id FROM Carts ORDER BY Id DESC LIMIT 1");
+                return cartId;
             }
         }
 
         // Adding item to Cart
-        public void Add (int productId, int cartId, int quantity)
+        public void Add (CartItem cartItem)
         {
             using (var connection = new MySqlConnection(this.connectionString))
             {   
                 connection.Execute(
                 "INSERT INTO CartItems (CartId, ProductId, Quantity) VALUES (@cartId, @productId, @quantity)",
-                new { cartId, productId, quantity});
+                cartItem);
             }
         }
 

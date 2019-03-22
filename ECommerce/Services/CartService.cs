@@ -19,22 +19,23 @@ namespace ECommerce.Services
         }
 
 
-        public Cart Create(int productId, int quantity)
+        public Cart Create(CartItem cartItem)
         {
             // Creating a cart
             var cartId = cartRepository.Create();
             // Adding the item to the cart
-            cartRepository.Add(productId, cartId, quantity);
+            cartItem.CartId = cartId;
+            cartRepository.Add(cartItem);
             // Selecting cart and items in it. 
             var cart = cartRepository.Get(cartId);
 
             return cart;
         }
 
-        public Cart Add(int productId, int cartId, int quantity)
+        public Cart Add(CartItem cartItem)
         {
-            cartRepository.Add(productId, cartId, quantity);
-            var cart = cartRepository.Get(cartId);
+            cartRepository.Add(cartItem);
+            var cart = cartRepository.Get(cartItem.CartId);
             return cart;
         }
 

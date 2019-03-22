@@ -12,15 +12,15 @@ namespace ECommerce.Controllers
 {
     //[EnableCors(origins: "http://localhost:3000/", headers: "Content-Type: application/json", methods: "*")]
     [Route("api/[controller]")]
-    public class ProductsController : Controller
+    public class ProductController : Controller
     {
         private readonly string connectionString;
-        private readonly ProductsService productsService;
+        private readonly ProductService productService;
 
-        public ProductsController(IConfiguration configuration)
+        public ProductController(IConfiguration configuration)
         {
             this.connectionString = configuration.GetConnectionString("ConnectionString");
-            this.productsService = new ProductsService(new ProductsRepository(connectionString));
+            this.productService = new ProductService(new ProductRepository(connectionString));
         }
 
 
@@ -31,7 +31,7 @@ namespace ECommerce.Controllers
         [ProducesResponseType(typeof(List<Product>), StatusCodes.Status404NotFound)]
         public IActionResult Get()
         {
-            var products = this.productsService.Get();
+            var products = this.productService.Get();
             if (products == null)
             {
                 return NotFound();
@@ -43,7 +43,7 @@ namespace ECommerce.Controllers
         [ProducesResponseType(typeof(List<Product>), StatusCodes.Status404NotFound)]
         public IActionResult Get(int id)
         {
-            var product = this.productsService.Get(id);
+            var product = this.productService.Get(id);
             if (product == null)
             {
                 return NotFound();
@@ -56,7 +56,7 @@ namespace ECommerce.Controllers
         [ProducesResponseType(typeof(void), StatusCodes.Status400BadRequest)]
         public IActionResult Add([FromBody]Product product)
         {
-            var postIsSuccessful = this.productsService.Add(product);
+            var postIsSuccessful = this.productService.Add(product);
             if (postIsSuccessful)
             {
                 return Ok();
@@ -69,7 +69,7 @@ namespace ECommerce.Controllers
         [ProducesResponseType(typeof(List<Product>), StatusCodes.Status404NotFound)]
         public IActionResult Delete(int id)
         {
-            var deleteIsSuccessful = this.productsService.Delete(id);
+            var deleteIsSuccessful = this.productService.Delete(id);
            if (deleteIsSuccessful)
             {
                 return Ok();

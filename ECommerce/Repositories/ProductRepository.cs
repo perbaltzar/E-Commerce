@@ -7,11 +7,11 @@ using MySql.Data.MySqlClient;
 
 namespace ECommerce.Repositories
 {
-    public class ProductsRepository
+    public class ProductRepository
     {
         private readonly string connectionString;
 
-        public ProductsRepository(string connectionString)
+        public ProductRepository(string connectionString)
         {
             this.connectionString = connectionString;
         }

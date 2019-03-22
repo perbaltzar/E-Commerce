@@ -6,18 +6,18 @@ using ECommerce.Repositories;
 
 namespace ECommerce.Services
 {
-    public class ProductsService
+    public class ProductService
     {
-        private ProductsRepository productsRepository;
+        private ProductRepository productRepository;
 
-        public ProductsService(ProductsRepository productsRepository)
+        public ProductService(ProductRepository productRepository)
         {
-            this.productsRepository = productsRepository;
+            this.productRepository = productRepository;
         }
 
         public List<Product> Get()
         {
-            return productsRepository.Get();
+            return productRepository.Get();
         }
 
         public Product Get(int id)
@@ -26,7 +26,7 @@ namespace ECommerce.Services
             {
                 return null;
             }
-            return productsRepository.Get(id);
+            return productRepository.Get(id);
 
         }
 
@@ -45,7 +45,7 @@ namespace ECommerce.Services
             {
                 return false;
             }
-            this.productsRepository.Add(product);
+            this.productRepository.Add(product);
             return true;
         }
 
@@ -53,12 +53,12 @@ namespace ECommerce.Services
         {
             using (TransactionScope scope = new TransactionScope())
             {
-                var deleteItem = this.productsRepository.Get(id);
+                var deleteItem = this.productRepository.Get(id);
                 if (deleteItem == null)
                 {
                     return false;
                 }
-                this.productsRepository.Delete(id);
+                this.productRepository.Delete(id);
                 scope.Complete();
             }
             return true;    

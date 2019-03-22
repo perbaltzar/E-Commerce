@@ -42,13 +42,13 @@ namespace ECommerce.Controllers
 
             if (cartItem.CartId < 1)
             {
-                var cart = cartService.Create(cartItem.ProductId, cartItem.Quantity);
+                var cart = cartService.Create(cartItem);
                 return Ok(cart);
             }
             // Default value zero if no cartId excist in LocalStorage
             else
             {
-                var cart = cartService.Add(cartItem.ProductId, cartItem.CartId, cartItem.Quantity);
+                var cart = cartService.Add(cartItem);
                 return Ok(cart);
             }
         }

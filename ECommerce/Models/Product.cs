@@ -10,6 +10,7 @@ namespace ECommerce.Models
         public string ImageUrl { get; set; }
         public int Balance { get; set; }
         public int Price { get; set; }
+        public int Quantity { get; set; }
 
         public Product()
         {

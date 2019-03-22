@@ -6,9 +6,11 @@ using ECommerce.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using System.Web.Http.Cors;
 
 namespace ECommerce.Controllers
 {
+    //[EnableCors(origins: "http://localhost:3000/", headers: "Content-Type: application/json", methods: "*")]
     [Route("api/[controller]")]
     public class ProductsController : Controller
     {

@@ -1,11 +1,14 @@
 ﻿<Properties StartupConfiguration="{F38668C7-71E8-422E-8ECC-53FC2A8C0FBA}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ECommerce/Models/Customer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ECommerce/Repositories/OrderRepository.cs">
     <Files>
       <File FileName="ECommerce/Models/Cart.cs" Line="9" Column="52" />
       <File FileName="ECommerce/Models/CartItem.cs" Line="1" Column="1" />
       <File FileName="ECommerce/Models/Product.cs" Line="9" Column="40" />
       <File FileName="ECommerce/Models/Order.cs" Line="10" Column="9" />
-      <File FileName="ECommerce/Models/Customer.cs" Line="6" Column="30" />
+      <File FileName="ECommerce/Models/Customer.cs" Line="6" Column="10" />
+      <File FileName="ECommerce/Repositories/OrderRepository.cs" Line="23" Column="160" />
+      <File FileName="ECommerce/Repositories/CartRepository.cs" Line="38" Column="55" />
+      <File FileName="ECommerce/Repositories/ProductRepository.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

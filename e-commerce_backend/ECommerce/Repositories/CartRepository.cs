@@ -33,8 +33,8 @@ namespace ECommerce.Repositories
         {
             using (var connection = new MySqlConnection(this.connectionString))
             {
-                connection.QuerySingle<int>("INSERT INTO Carts (Ordered) VALUES (false)");
-                var cartId = connection.QuerySingleOrDefault<int>("SELECT Id FROM Carts ORDER BY Id DESC LIMIT 1");
+                var cartId = connection.QuerySingle<int>(@"INSERT INTO Carts (Ordered) VALUES (false);
+                                            SELECT LAST_INSERT_ID()");
                 return cartId;
             }
         }

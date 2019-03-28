@@ -1,15 +1,18 @@
 ﻿<Properties StartupConfiguration="{F38668C7-71E8-422E-8ECC-53FC2A8C0FBA}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ECommerce/Repositories/CostumerRepository.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ECommerce/Repositories/ProductRepository.cs">
     <Files>
-      <File FileName="ECommerce/Repositories/OrderRepository.cs" Line="36" Column="14" />
-      <File FileName="ECommerce/Services/OrderService.cs" Line="39" Column="42" />
+      <File FileName="ECommerce/Repositories/OrderRepository.cs" Line="46" Column="17" />
+      <File FileName="ECommerce/Services/OrderService.cs" Line="35" Column="26" />
       <File FileName="ECommerce/Repositories/CartRepository.cs" Line="51" Column="10" />
       <File FileName="ECommerce/Models/Customer.cs" Line="1" Column="1" />
-      <File FileName="ECommerce/Models/Order.cs" Line="11" Column="21" />
-      <File FileName="ECommerce/Services/CartService.cs" Line="26" Column="43" />
+      <File FileName="ECommerce/Models/Order.cs" Line="16" Column="10" />
+      <File FileName="ECommerce/Services/CartService.cs" Line="29" Column="13" />
       <File FileName="ECommerce/Controllers/OrderController.cs" Line="45" Column="50" />
       <File FileName="ECommerce/Program.cs" Line="17" Column="1" />
-      <File FileName="ECommerce/Repositories/CostumerRepository.cs" Line="26" Column="16" />
+      <File FileName="ECommerce/Repositories/CostumerRepository.cs" Line="30" Column="70" />
+      <File FileName="ECommerce/Services/ProductService.cs" Line="50" Column="10" />
+      <File FileName="ECommerce/Controllers/CartController.cs" Line="40" Column="62" />
+      <File FileName="ECommerce/Repositories/ProductRepository.cs" Line="42" Column="37" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
@@ -34,8 +37,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce/Services/OrderService.cs" relfile="ECommerce/Services/OrderService.cs" line="36" column="1" />
-      <Breakpoint file="/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce/Repositories/OrderRepository.cs" relfile="ECommerce/Repositories/OrderRepository.cs" line="48" column="1" />
+      <Breakpoint file="/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce/Repositories/CartRepository.cs" relfile="ECommerce/Repositories/CartRepository.cs" line="36" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

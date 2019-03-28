@@ -45,9 +45,9 @@ namespace ECommerce.Repositories
                 var cartId = cart.Id;
 
                 //Insert into database
-                connection.Execute("INSERT INTO Orders (CartId, CustomerId) VALUES (@cartId, @customerId)", new { cartId, customerId });
-                var orderId = connection.QuerySingleOrDefault<int>("SELECT Id FROM Orders ORDER BY Id DESC LIMIT 1");
-
+                var orderId = connection.Execute(@"INSERT INTO Orders (CartId, CustomerId) VALUES (@cartId, @customerId);
+                                                   SELECT LAST_INSERT_ID()", 
+                                                   new { cartId, customerId });
                 return orderId;
             }
         }

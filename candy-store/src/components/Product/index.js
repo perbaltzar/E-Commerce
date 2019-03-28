@@ -1,5 +1,4 @@
 import React from 'react';
-import './Product.css'
 import AddToCart from '../AddToCart';
 import styled from 'styled-components';
 

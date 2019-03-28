@@ -24,7 +24,6 @@ namespace ECommerce.Repositories
             {
                 var cart = connection.QuerySingleOrDefault<Cart>("SELECT * FROM carts WHERE id = @id", new { id });
                 cart.Products = connection.Query<Product>("SELECT * FROM CartItems c INNER JOIN Products p ON c.ProductId = p.Id WHERE c.CartId = @id", new { id }).ToList();
-
                 return cart;
             }
         }
@@ -34,7 +33,7 @@ namespace ECommerce.Repositories
         {
             using (var connection = new MySqlConnection(this.connectionString))
             {
-                connection.Execute("INSERT INTO Carts (Ordered) VALUES (false)");
+                connection.QuerySingle<int>("INSERT INTO Carts (Ordered) VALUES (false)");
                 var cartId = connection.QuerySingleOrDefault<int>("SELECT Id FROM Carts ORDER BY Id DESC LIMIT 1");
                 return cartId;
             }
@@ -63,7 +62,7 @@ namespace ECommerce.Repositories
         }
 
         // Update an item in Cart
-        public void Update (int productId, int cartId, int quantity)
+        public void UpdateQuantity (int productId, int cartId, int quantity)
         {
             using (var connection = new MySqlConnection(this.connectionString))
             {
@@ -73,6 +72,26 @@ namespace ECommerce.Repositories
             }
         }
 
+        // Update an item in Cart
+        public void UpdateOrderStatus(int cartId)
+        {
+            using (var connection = new MySqlConnection(this.connectionString))
+            {
+                connection.Execute(
+                "UPDATE Carts SET Ordered = 1 WHERE Id = @cartId",
+                new { cartId });
+            }
+        }
 
+        public void UpdatePrice (Cart cart)
+        {
+            var price = cart.Products.Sum(item => item.Price * item.Quantity);
+            using (var connection = new MySqlConnection(this.connectionString))
+            {
+                connection.Execute(
+                "UPDATE Carts SET Price = @price WHERE Id = @Id",
+                new { price, cart.Id });
+            }
+        }
     }
 }

@@ -22,5 +22,14 @@ namespace ECommerce.Repositories
                 return customer;
             }
         }
+
+        public int Create(Customer customer)
+        {
+            using (var connection = new MySqlConnection(this.connectionString))
+            {
+                connection.Execute("INSERT INTO Customers (Name, Adress, ZipCode, City, Country) VALUES (@Name, @Adress, @ZipCode, @City, @Country)", customer);
+                return connection.QuerySingleOrDefault<int>("SELECT Id FROM Customers ORDER BY Id DESC LIMIT 1");
+            }
+        }
     }
 }

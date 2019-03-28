@@ -30,23 +30,23 @@ namespace ECommerce.Services
 
         }
 
-        public bool Add (Product product)   
+        public int Add (Product product)   
         {
             //Add more conditions and error messages
             if (string.IsNullOrEmpty(product.Name))
             {
-                return false;
+                return 0;
             }
             if (string.IsNullOrEmpty(product.Description))
             {
-                return false;
+                return 0;
             }
             if (product.Price < 0)
             {
-                return false;
+                return 0;
             }
-            this.productRepository.Add(product);
-            return true;
+
+            return this.productRepository.Add(product); ;
         }
 
         public bool Delete (int id)

@@ -1,0 +1,17 @@
+/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce.IntegrationTests/obj/Debug/netcoreapp2.0/ECommerce.IntegrationTests.csprojAssemblyReference.cache
+/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce.IntegrationTests/obj/Debug/netcoreapp2.0/ECommerce.IntegrationTests.csproj.CoreCompileInputs.cache
+/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce.IntegrationTests/obj/Debug/netcoreapp2.0/ECommerce.IntegrationTests.AssemblyInfoInputs.cache
+/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce.IntegrationTests/obj/Debug/netcoreapp2.0/ECommerce.IntegrationTests.AssemblyInfo.cs
+/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce.IntegrationTests/bin/Debug/netcoreapp2.0/NUnit3.TestAdapter.dll
+/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce.IntegrationTests/bin/Debug/netcoreapp2.0/NUnit3.TestAdapter.pdb
+/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce.IntegrationTests/bin/Debug/netcoreapp2.0/nunit.engine.netstandard.dll
+/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce.IntegrationTests/bin/Debug/netcoreapp2.0/ECommerce.IntegrationTests.deps.json
+/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce.IntegrationTests/bin/Debug/netcoreapp2.0/ECommerce.IntegrationTests.runtimeconfig.json
+/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce.IntegrationTests/bin/Debug/netcoreapp2.0/ECommerce.IntegrationTests.runtimeconfig.dev.json
+/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce.IntegrationTests/bin/Debug/netcoreapp2.0/ECommerce.IntegrationTests.dll
+/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce.IntegrationTests/bin/Debug/netcoreapp2.0/ECommerce.IntegrationTests.pdb
+/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce.IntegrationTests/bin/Debug/netcoreapp2.0/ECommerce.dll
+/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce.IntegrationTests/bin/Debug/netcoreapp2.0/ECommerce.pdb
+/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce.IntegrationTests/obj/Debug/netcoreapp2.0/ECommerce.IntegrationTests.csproj.CopyComplete
+/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce.IntegrationTests/obj/Debug/netcoreapp2.0/ECommerce.IntegrationTests.dll
+/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce.IntegrationTests/obj/Debug/netcoreapp2.0/ECommerce.IntegrationTests.pdb

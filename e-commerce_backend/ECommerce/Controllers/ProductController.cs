@@ -57,11 +57,11 @@ namespace ECommerce.Controllers
         public IActionResult Add([FromBody]Product product)
         {
             var postIsSuccessful = this.productService.Add(product);
-            if (postIsSuccessful)
+            if (postIsSuccessful == 0)
             {
-                return Ok();
+                return BadRequest();
             }
-            return BadRequest();
+            return Ok();
         }
 
         [HttpDelete("{id}")]

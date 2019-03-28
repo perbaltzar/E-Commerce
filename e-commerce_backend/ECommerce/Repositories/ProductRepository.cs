@@ -35,12 +35,14 @@ namespace ECommerce.Repositories
             }
         }
 
-        public void Add(Product product)
+        public int Add(Product product)
         {
             using (var connection = new MySqlConnection(this.connectionString))
             {
                 connection.Execute("INSERT INTO Products (name, description, price, typeid, balance, imageurl) " +
-                	"VALUES (@name, @description, @price, @typeid, @balance, @imageurl)", product);
+                    "VALUES (@name, @description, @price, @typeid, @balance, @imageurl)", product);
+
+                return connection.QuerySingle<int>("SELECT Id FROM Products ORDER BY Id DESC LIMIT 1");
 
             }
         }

@@ -27,7 +27,6 @@ class AddToCart extends Component {
             body: JSON.stringify( product )
         }).then(response => response.json())
         .then(json => {
-            console.log(json)
             localStorage.setItem('cartId', JSON.stringify(json.id))
         })
     }

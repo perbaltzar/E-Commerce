@@ -40,14 +40,14 @@ namespace ECommerce.Repositories
         {
             using (var connection = new MySqlConnection(this.connectionString))
             {
-                //Calculate TotalPrice
-                var totalPrice = 0;
-                connection.Execute("INSERT INTO Customers (Name, Adress, ZipCode, City, Country) VALUES (@Name, @Adress, @ZipCode, @City, @Country)", customer);
-                var customerId = connection.QuerySingleOrDefault<int>("SELECT Id FROM Customers ORDER BY Id DESC LIMIT 1");
+                // Selecting IDs
+                var customerId = customer.Id;
                 var cartId = cart.Id;
-                connection.Execute("INSERT INTO Orders (CartId, CustomerId, TotalPrice) VALUES (@cartId, @customerId, @totalPrice)",
-                new { cartId, customerId, totalPrice });
+
+                //Insert into database
+                connection.Execute("INSERT INTO Orders (CartId, CustomerId) VALUES (@cartId, @customerId)", new { cartId, customerId });
                 var orderId = connection.QuerySingleOrDefault<int>("SELECT Id FROM Orders ORDER BY Id DESC LIMIT 1");
+
                 return orderId;
             }
         }

@@ -13011,11 +13011,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/perbaltzar/GitHub/ECommerce/ECommerce/ECommerce.csproj",
+      "projectUniqueName": "/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce/ECommerce.csproj",
       "projectName": "ECommerce",
-      "projectPath": "/Users/perbaltzar/GitHub/ECommerce/ECommerce/ECommerce.csproj",
+      "projectPath": "/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce/ECommerce.csproj",
       "packagesPath": "/Users/perbaltzar/.nuget/packages/",
-      "outputPath": "/Users/perbaltzar/GitHub/ECommerce/ECommerce/obj",
+      "outputPath": "/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

@@ -26,6 +26,7 @@ namespace ECommerce.Services
             // Adding the item to the cart
             cartItem.CartId = cartId;
             cartRepository.Add(cartItem);
+
             // Selecting cart and items in it. 
             var cart = cartRepository.Get(cartId);
 
@@ -46,7 +47,7 @@ namespace ECommerce.Services
 
         public void Update(int productId, int cartId, int quantity)
         {
-            cartRepository.Update(productId, cartId, quantity);
+            cartRepository.UpdateQuantity(productId, cartId, quantity);
         }
     }
 }

@@ -51,6 +51,10 @@ namespace ECommerce.Services
 
         public bool Delete (int id)
         {
+            if (id < 0)
+            {
+                return false;
+            }
             using (TransactionScope scope = new TransactionScope())
             {
                 var deleteItem = this.productRepository.Get(id);

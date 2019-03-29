@@ -53,10 +53,15 @@ namespace ECommerce.Controllers
 
         [HttpPost]
         [ProducesResponseType(typeof(Order), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(Order), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(Order), StatusCodes.Status400BadRequest)]
         public IActionResult Create([FromBody]Order order)
         {
-            return Ok(this.orderService.Create(order.Cart, order.Customer));
+            var results = this.orderService.Create(order.Cart, order.Customer);
+            if (results == null)
+            {
+                return BadRequest();
+            }
+            return Ok(results);
         }
     }
 

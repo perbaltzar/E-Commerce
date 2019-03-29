@@ -58,7 +58,7 @@ namespace ECommerce.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult Remove([FromBody]CartItem cartItem)
         {
-            cartService.Remove(cartItem.ProductId, cartItem.CartId);
+            cartService.Remove(cartItem);
             return Ok();
         }
 

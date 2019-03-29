@@ -15,14 +15,25 @@ namespace ECommerce.Services
 
         public Cart Get (int id)
         {
+            if (id < 0)
+            {
+                return null;
+            }
             return cartRepository.Get(id);
         }
 
 
         public Cart Create(CartItem cartItem)
         {
+            // CartItem conditions
+            if (cartItem.ProductId < 0 || cartItem.Quantity < 1)
+            {
+                return null;
+            }
+
             // Creating a cart
             var cartId = cartRepository.Create();
+
             // Adding the item to the cart
             cartItem.CartId = cartId;
             cartRepository.Add(cartItem);
@@ -35,14 +46,27 @@ namespace ECommerce.Services
 
         public Cart Add(CartItem cartItem)
         {
+            // CartItem conditions
+            if (cartItem.ProductId < 0 || cartItem.Quantity < 1 || cartItem.CartId < 0)
+            {
+                return null;
+            }
+            // Adding Item to cartItem
             cartRepository.Add(cartItem);
+
+            // Adding Item to Cart
             var cart = cartRepository.Get(cartItem.CartId);
             return cart;
         }
 
-        public void Remove(int productId, int cartId)
+        public bool Remove(CartItem cartItem)
         {
-            cartRepository.Remove(productId, cartId);
+            if (cartItem.Id < 0 || cartItem.CartId < 0)
+            {
+                return false;
+            }
+            cartRepository.Remove(cartItem);
+            return true;
         }
 
         public void Update(int productId, int cartId, int quantity)

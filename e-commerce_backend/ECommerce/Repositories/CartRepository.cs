@@ -34,7 +34,7 @@ namespace ECommerce.Repositories
             using (var connection = new MySqlConnection(this.connectionString))
             {
                 var cartId = connection.QuerySingle<int>(@"INSERT INTO Carts (Ordered) VALUES (false);
-                                            SELECT LAST_INSERT_ID()");
+                                                            SELECT LAST_INSERT_ID()");
                 return cartId;
             }
         }
@@ -51,13 +51,13 @@ namespace ECommerce.Repositories
         }
 
         // Removing an item from Cart
-        public void Remove (int productId, int cartId)
+        public void Remove (CartItem cartItem)
         {
             using (var connection = new MySqlConnection(this.connectionString))
             {
                 connection.Execute(
-                "DELETE FROM CartItems WHERE ProductId = @productId AND CartId = @cartId", 
-                new { productId, cartId });
+                "DELETE FROM CartItems WHERE ProductId = @productId AND CartId = @Id", 
+                cartItem);
             }
         }
 

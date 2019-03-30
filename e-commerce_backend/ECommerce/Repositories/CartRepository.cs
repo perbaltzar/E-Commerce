@@ -62,13 +62,13 @@ namespace ECommerce.Repositories
         }
 
         // Update an item in Cart
-        public void UpdateQuantity (int productId, int cartId, int quantity)
+        public void UpdateQuantity (CartItem cartItem)
         {
             using (var connection = new MySqlConnection(this.connectionString))
             {
                 connection.Execute(
                 "UPDATE CartItems SET Quantity = @quantity WHERE ProductId = @productId AND CartId = @cartId", 
-                new { quantity, productId, cartId });
+                cartItem);
             }
         }
 

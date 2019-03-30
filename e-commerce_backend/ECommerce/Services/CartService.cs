@@ -6,11 +6,13 @@ namespace ECommerce.Services
 {
     public class CartService
     {
-        public CartRepository cartRepository { get; set; }
+        private CartRepository cartRepository { get; set; }
+        private CartItemRepository cartItemRepository;
 
-        public CartService(CartRepository cartRepository)
+        public CartService(CartRepository cartRepository, CartItemRepository cartItemRepository)
         {
             this.cartRepository = cartRepository;
+            this.cartItemRepository = cartItemRepository;
         }
 
         public Cart Get (int id)
@@ -51,6 +53,15 @@ namespace ECommerce.Services
             {
                 return null;
             }
+
+            // Check if item exists in database
+            var oldCartItem = this.cartItemRepository.Get(cartItem);
+            if (oldCartItem != null)
+            {
+                cartItem.Quantity += oldCartItem.Quantity;
+                this.cartItemRepository.Remove(oldCartItem);
+            }
+
             // Adding Item to cartItem
             cartRepository.Add(cartItem);
 
@@ -69,9 +80,10 @@ namespace ECommerce.Services
             return true;
         }
 
-        public void Update(int productId, int cartId, int quantity)
+        public void Update(CartItem cartItem)
         {
-            cartRepository.UpdateQuantity(productId, cartId, quantity);
+
+            cartRepository.UpdateQuantity(cartItem);
         }
     }
 }

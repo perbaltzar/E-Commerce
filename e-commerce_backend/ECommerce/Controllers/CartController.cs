@@ -17,7 +17,7 @@ namespace ECommerce.Controllers
         public CartController(IConfiguration configuration)
         {
             this.connectionString = configuration.GetConnectionString("ConnectionString");
-            this.cartService = new CartService(new CartRepository(this.connectionString));
+            this.cartService = new CartService(new CartRepository(this.connectionString), new CartItemRepository(this.connectionString));
         }
 
         [HttpGet("{id}")]
@@ -65,7 +65,7 @@ namespace ECommerce.Controllers
         //ADD an update
         public IActionResult Update(CartItem cartItem)
         {
-            cartService.Update(cartItem.ProductId, cartItem.CartId, cartItem.Quantity);
+            cartService.Update(cartItem);
             return Ok();
         }
     }

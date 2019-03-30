@@ -30,22 +30,22 @@ namespace Ecommerce.UnitTests.Services
         }
 
         [Test]
-        public void Get_GivenValidId_ReturnsIt()
+        public void Get_GivenInvalidId_ReturnsNull()
         {
             // Arrange
-            const int ExpectedId = 6;
+            var id = 0;
 
             // Act
             Product results;
             using (new TransactionScope())
             {
-                results = productService.Get(ExpectedId);
+                results = productService.Get(id);
             }
-
-
             // Assert
-            Assert.That(results.Id, Is.EqualTo(ExpectedId));
+            Assert.That(results, Is.EqualTo(null));
 
         }
+
+
     }
 }

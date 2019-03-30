@@ -82,12 +82,12 @@ namespace ECommerce.IntegrationTests.Services
             }
         
             // Assert
-            //Assert.That(results.Name, Is.EqualTo(ExpectedName));
-            //Assert.That(results.Description, Is.EqualTo(ExpectedDescription));
-            //Assert.That(results.TypeId, Is.EqualTo(ExpectedTypeId));
-            //Assert.That(results.Price, Is.EqualTo(ExpectedPrice));
-            //Assert.That(results.Balance, Is.EqualTo(ExpectedBalance));
-            //Assert.That(results.ImageUrl, Is.EqualTo(ExpectedImageUrl));
+            Assert.That(results.Name, Is.EqualTo(ExpectedName));
+            Assert.That(results.Description, Is.EqualTo(ExpectedDescription));
+            Assert.That(results.TypeId, Is.EqualTo(ExpectedTypeId));
+            Assert.That(results.Price, Is.EqualTo(ExpectedPrice));
+            Assert.That(results.Balance, Is.EqualTo(ExpectedBalance));
+            Assert.That(results.ImageUrl, Is.EqualTo(ExpectedImageUrl));
 
 
 
@@ -121,6 +121,7 @@ namespace ECommerce.IntegrationTests.Services
             using (new TransactionScope())
             {
                 id = productService.Add(product);
+                productService.Delete(id);
                 results = productService.Get(id);
             }
           

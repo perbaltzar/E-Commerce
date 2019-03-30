@@ -1,17 +1,19 @@
 ﻿<Properties StartupConfiguration="{F38668C7-71E8-422E-8ECC-53FC2A8C0FBA}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ECommerce/Models/CartItem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ECommerce/Repositories/CostumerRepository.cs">
     <Files>
       <File FileName="ECommerce.IntegrationTests/Services/ProductServiceTests.cs" Line="86" Column="20" />
       <File FileName="ECommerce/Services/ProductService.cs" Line="59" Column="14" />
-      <File FileName="ECommerce/Services/OrderService.cs" Line="37" Column="15" />
-      <File FileName="ECommerce/Controllers/OrderController.cs" Line="65" Column="10" />
+      <File FileName="ECommerce/Services/OrderService.cs" Line="57" Column="14" />
+      <File FileName="ECommerce/Controllers/OrderController.cs" Line="59" Column="50" />
       <File FileName="ECommerce/Repositories/OrderRepository.cs" Line="44" Column="37" />
-      <File FileName="ECommerce/Services/CartService.cs" Line="57" Column="40" />
+      <File FileName="ECommerce/Services/CartService.cs" Line="62" Column="1" />
       <File FileName="ECommerce/Repositories/CartRepository.cs" Line="28" Column="14" />
       <File FileName="ECommerce/Controllers/CartController.cs" Line="20" Column="137" />
       <File FileName="ECommerce/Repositories/ProductRepository.cs" Line="34" Column="17" />
-      <File FileName="ECommerce/Repositories/CartItemRepository.cs" Line="18" Column="14" />
+      <File FileName="ECommerce/Repositories/CartItemRepository.cs" Line="27" Column="58" />
       <File FileName="ECommerce/Models/CartItem.cs" Line="1" Column="1" />
+      <File FileName="ECommerce/Models/Order.cs" Line="16" Column="10" />
+      <File FileName="ECommerce/Repositories/CostumerRepository.cs" Line="30" Column="70" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">

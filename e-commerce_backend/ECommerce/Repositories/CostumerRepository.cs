@@ -27,7 +27,7 @@ namespace ECommerce.Repositories
         {
             using (var connection = new MySqlConnection(this.connectionString))
             {
-                return connection.Execute(@"INSERT INTO Customers (Name, Adress, ZipCode, City, Country) VALUES (@Name, @Adress, @ZipCode, @City, @Country);
+                return connection.QuerySingleOrDefault<int>(@"INSERT INTO Customers (Name, Adress, ZipCode, City, Country) VALUES (@Name, @Adress, @ZipCode, @City, @Country);
                                             SELECT LAST_INSERT_ID()", customer);
             }
         }

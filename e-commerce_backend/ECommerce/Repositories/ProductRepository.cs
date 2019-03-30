@@ -39,7 +39,7 @@ namespace ECommerce.Repositories
         {
             using (var connection = new MySqlConnection(this.connectionString))
             {
-               return connection.Execute(@"INSERT INTO Products (name, description, price, typeid, balance, imageurl) 
+               return connection.QuerySingleOrDefault<int>(@"INSERT INTO Products (name, description, price, typeid, balance, imageurl) 
                                             VALUES (@name, @description, @price, @typeid, @balance, @imageurl); 
                                             SELECT LAST_INSERT_ID()", product);
             }

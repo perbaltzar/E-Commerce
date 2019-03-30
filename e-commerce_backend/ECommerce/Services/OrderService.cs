@@ -33,23 +33,36 @@ namespace ECommerce.Services
             {
                 return null;
             }
+
             // Getting Order
             var order = orderRepository.Get(id);
 
-            // Populating Order with Cart and Customer
-
+            // Populating Order with Customer
             order.Customer = costumerRepository.Get(order.CustomerId);
-           //order.OrderItems = 
+            order.OrderItems = orderItemRepository.Get(id);
+
             return order;
 
         }
         public Order Create (Cart cart, Customer customer)
         {
             // Cart Conditions
+
             if (cart.Id < 0 || cart.Ordered)
             {
                 return null;
             }
+
+            // Condition for check if cart is empty
+            // Should move populating cart with products to outside 
+            // 
+            var checkForCart = cartRepository.Get(cart.Id);
+            if (checkForCart == null)
+            {
+                return null;
+            }
+
+
 
             // Customer Conditions
             if (string.IsNullOrEmpty(customer.Name) || string.IsNullOrEmpty(customer.Adress) ||

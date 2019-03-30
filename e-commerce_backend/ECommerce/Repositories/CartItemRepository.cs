@@ -23,6 +23,14 @@ namespace ECommerce.Repositories
             }
         }
 
+        public List<Product> GetItemsAsProducts (int id)
+        {
+            using (var connection = new MySqlConnection(this.connectionString))
+            {
+                return connection.Query<Product>("SELECT * FROM CartItems c INNER JOIN Products p ON c.ProductId = p.Id WHERE c.CartId = @id", new { id }).ToList();
+           }
+        }
+
         public CartItem Get(CartItem cartItem)
         {
             using (var connection = new MySqlConnection(this.connectionString))

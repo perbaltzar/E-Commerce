@@ -21,7 +21,9 @@ namespace ECommerce.Services
             {
                 return null;
             }
-            return cartRepository.Get(id);
+            var cart = cartRepository.Get(id);
+            cart.Products = cartItemRepository.GetItemsAsProducts(id);
+            return cart;
         }
 
 
@@ -42,6 +44,7 @@ namespace ECommerce.Services
 
             // Selecting cart and items in it. 
             var cart = cartRepository.Get(cartId);
+            cart.Products = cartItemRepository.GetItemsAsProducts(cartId);
 
             return cart;
         }
@@ -67,7 +70,10 @@ namespace ECommerce.Services
 
             // Adding Item to Cart
             var cart = cartRepository.Get(cartItem.CartId);
+            cart.Products = cartItemRepository.GetItemsAsProducts(cart.Id);
+
             return cart;
+
         }
 
         public bool RemoveItem(CartItem cartItem)

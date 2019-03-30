@@ -10,6 +10,7 @@ namespace ECommerce.Repositories
     public class CartRepository
     {
         private readonly string connectionString;
+        private readonly CartItemRepository cartItemRepository;
 
         // Constructor
         public CartRepository(string connectionString)
@@ -23,7 +24,6 @@ namespace ECommerce.Repositories
             using (var connection = new MySqlConnection(this.connectionString))
             {
                 var cart = connection.QuerySingleOrDefault<Cart>("SELECT * FROM carts WHERE id = @id", new { id });
-                cart.Products = connection.Query<Product>("SELECT * FROM CartItems c INNER JOIN Products p ON c.ProductId = p.Id WHERE c.CartId = @id", new { id }).ToList();
                 return cart;
             }
         }

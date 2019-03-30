@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ECommerce.Models;
 
 namespace ECommerce
@@ -7,8 +8,9 @@ namespace ECommerce
     {
 
         public int CustomerId { get; set; }
-        public int CartId { get; set; }
+        public int Price { get; set; }
         public int Id { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
         public Cart Cart { get; set; }
         public Customer Customer { get; set; }
 

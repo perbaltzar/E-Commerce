@@ -36,19 +36,29 @@ namespace ECommerce.Repositories
             }
         }
 
-        public int Create(Cart cart, Customer customer)
+        public int Create(Customer customer)
         {
             using (var connection = new MySqlConnection(this.connectionString))
             {
                 // Selecting IDs
                 var customerId = customer.Id;
-                var cartId = cart.Id;
 
                 //Insert into database
-                var orderId = connection.QuerySingleOrDefault<int>(@"INSERT INTO Orders (CartId, CustomerId) VALUES (@cartId, @customerId);
+                var orderId = connection.QuerySingleOrDefault<int>(@"INSERT INTO Orders (CustomerId) VALUES (@customerId);
                                                    SELECT LAST_INSERT_ID()", 
-                                                   new { cartId, customerId });
+                                                   new { customerId });
                 return orderId;
+            }
+        }
+
+        public void SetPrice(Cart cart, int id)
+        {
+            var price = cart.Products.Sum(item => item.Price * item.Quantity);
+            using (var connection = new MySqlConnection(this.connectionString))
+            {
+                connection.Execute(
+                "UPDATE Orders SET Price = @price WHERE Id = @id",
+                new { price, id });
             }
         }
     }

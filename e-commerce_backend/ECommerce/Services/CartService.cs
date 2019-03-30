@@ -70,20 +70,20 @@ namespace ECommerce.Services
             return cart;
         }
 
-        public bool Remove(CartItem cartItem)
+        public bool RemoveItem(CartItem cartItem)
         {
             if (cartItem.Id < 0 || cartItem.CartId < 0)
             {
                 return false;
             }
-            cartRepository.Remove(cartItem);
+            cartItemRepository.Remove(cartItem);
             return true;
         }
 
         public void Update(CartItem cartItem)
         {
 
-            cartRepository.UpdateQuantity(cartItem);
+            cartItemRepository.UpdateQuantity(cartItem);
         }
     }
 }

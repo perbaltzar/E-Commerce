@@ -21,7 +21,8 @@ namespace ECommerce.Controllers
             this.orderService = new OrderService(
                 new OrderRepository(connectionString),
                 new CartRepository(connectionString), 
-                new CostumerRepository(connectionString));
+                new CostumerRepository(connectionString),
+                new OrderItemRepository(connectionString));
         }
 
         [HttpGet]

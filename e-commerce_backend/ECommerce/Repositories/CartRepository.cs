@@ -50,27 +50,20 @@ namespace ECommerce.Repositories
             }
         }
 
-        // Removing an item from Cart
-        public void Remove (CartItem cartItem)
+        // Removing a Cart and its Items
+        public void Remove (int id)
         {
             using (var connection = new MySqlConnection(this.connectionString))
             {
                 connection.Execute(
-                "DELETE FROM CartItems WHERE ProductId = @productId AND CartId = @Id", 
-                cartItem);
+                    @"DELETE FROM Carts WHERE Id = @Id;
+                    DELETE FROM CartItems WHERE CartId = @Id", 
+                    new { id });
+
             }
         }
 
-        // Update an item in Cart
-        public void UpdateQuantity (CartItem cartItem)
-        {
-            using (var connection = new MySqlConnection(this.connectionString))
-            {
-                connection.Execute(
-                "UPDATE CartItems SET Quantity = @quantity WHERE ProductId = @productId AND CartId = @cartId", 
-                cartItem);
-            }
-        }
+
 
         // Update an item in Cart
         public void UpdateOrderStatus(int cartId)
@@ -80,17 +73,6 @@ namespace ECommerce.Repositories
                 connection.Execute(
                 "UPDATE Carts SET Ordered = 1 WHERE Id = @cartId",
                 new { cartId });
-            }
-        }
-
-        public void UpdatePrice (Cart cart)
-        {
-            var price = cart.Products.Sum(item => item.Price * item.Quantity);
-            using (var connection = new MySqlConnection(this.connectionString))
-            {
-                connection.Execute(
-                "UPDATE Carts SET Price = @price WHERE Id = @Id",
-                new { price, cart.Id });
             }
         }
     }

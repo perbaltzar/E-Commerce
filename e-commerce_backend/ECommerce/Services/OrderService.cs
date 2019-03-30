@@ -10,12 +10,15 @@ namespace ECommerce.Services
         public OrderRepository orderRepository { get; set; }
         public CartRepository cartRepository;
         public CostumerRepository costumerRepository;
+        public OrderItemRepository orderItemRepository;
 
-        public OrderService(OrderRepository orderRepository, CartRepository cartRepository, CostumerRepository costumerRepository)
+        public OrderService(OrderRepository orderRepository, CartRepository cartRepository, 
+                            CostumerRepository costumerRepository, OrderItemRepository orderItemRepository)
         {
             this.orderRepository = orderRepository;
             this.cartRepository = cartRepository;
             this.costumerRepository = costumerRepository;
+            this.orderItemRepository = orderItemRepository;
         }
 
         public List<Order> Get ()
@@ -34,9 +37,9 @@ namespace ECommerce.Services
             var order = orderRepository.Get(id);
 
             // Populating Order with Cart and Customer
-            order.Cart = cartRepository.Get(order.CartId);
-            order.Customer = costumerRepository.Get(order.CustomerId);
 
+            order.Customer = costumerRepository.Get(order.CustomerId);
+           //order.OrderItems = 
             return order;
 
         }
@@ -60,22 +63,24 @@ namespace ECommerce.Services
             customer.Id = costumerRepository.Create(customer);
 
             //Creating Order
-            var orderId = orderRepository.Create(cart, customer);
+            var orderId = orderRepository.Create(customer);
+
+            // Creating OrderItems
+            foreach(Product product in cart.Products){
+                orderItemRepository.Add(product, orderId);
+            }
+
+            // Updating price of Order
+            orderRepository.SetPrice(cart, orderId);
 
             // Getting Order
             var order = orderRepository.Get(orderId);
 
-            // Updating order Status
-            cartRepository.UpdateOrderStatus(order.CartId);
+            // Removing Cart
+            cartRepository.Remove(cart.Id);
 
-
-
-            // Updating price of cart
-            this.cartRepository.UpdatePrice(cart);
-
-
-            // Populating Order with Cart and Customer
-            order.Cart = cartRepository.Get(order.CartId);
+            // Populating Order with Items and Customer
+            order.OrderItems = orderItemRepository.Get(orderId);
             order.Customer = costumerRepository.Get(order.CustomerId);
 
 

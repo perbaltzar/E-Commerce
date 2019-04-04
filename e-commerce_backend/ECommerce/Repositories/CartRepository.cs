@@ -10,7 +10,6 @@ namespace ECommerce.Repositories
     public class CartRepository
     {
         private readonly string connectionString;
-        private readonly CartItemRepository cartItemRepository;
 
         // Constructor
         public CartRepository(string connectionString)

@@ -1,31 +1,36 @@
 ﻿<Properties StartupConfiguration="{F38668C7-71E8-422E-8ECC-53FC2A8C0FBA}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ECommerce/Repositories/CartItemRepository.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ECommerce/Repositories/CostumerRepository.cs">
     <Files>
-      <File FileName="ECommerce/Repositories/OrderItemRepository.cs" Line="22" Column="1" />
-      <File FileName="ECommerce/Repositories/OrderRepository.cs" Line="57" Column="1" />
-      <File FileName="ECommerce/Services/OrderService.cs" Line="58" Column="16" />
-      <File FileName="ECommerce/Models/OrderItem.cs" Line="8" Column="39" />
-      <File FileName="ECommerce/Controllers/OrderController.cs" Line="59" Column="10" />
-      <File FileName="ECommerce/Repositories/CartItemRepository.cs" Line="26" Column="11" />
-      <File FileName="ECommerce/Repositories/CartRepository.cs" Line="27" Column="26" />
-      <File FileName="ECommerce/Services/CartService.cs" Line="25" Column="56" />
-      <File FileName="ECommerce/Controllers/CartController.cs" Line="63" Column="10" />
-      <File FileName="ECommerce/Repositories/CostumerRepository.cs" Line="31" Column="29" />
-      <File FileName="ECommerce/Models/Order.cs" Line="15" Column="43" />
-      <File FileName="ECommerce/Models/Cart.cs" Line="1" Column="1" />
-      <File FileName="ECommerce/Repositories/ProductRepository.cs" Line="24" Column="28" />
+      <File FileName="ECommerce.IntegrationTests/Services/ProductServiceTests.cs" Line="78" Column="42" />
+      <File FileName="ECommerce.IntegrationTests/Services/CartServiceTests.cs" Line="31" Column="44" />
+      <File FileName="ECommerce/Services/CartService.cs" Line="36" Column="14" />
+      <File FileName="ECommerce/Repositories/CartRepository.cs" Line="12" Column="45" />
+      <File FileName="ECommerce/Repositories/CartItemRepository.cs" Line="30" Column="165" />
+      <File FileName="ECommerce/Repositories/ProductRepository.cs" Line="44" Column="69" />
+      <File FileName="ECommerce/Repositories/OrderRepository.cs" Line="34" Column="32" />
+      <File FileName="ECommerce/Repositories/CostumerRepository.cs" Line="30" Column="61" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="ECommerce" expanded="True">
+            <Node name="ECommerce.IntegrationTests" expanded="True">
+              <Node name="ECommerce" expanded="True">
+                <Node name="IntegrationTests" expanded="True">
+                  <Node name="Services" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.ECommerce.IntegrationTests PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce.IntegrationTests/Services/ProductServiceTests.cs" relfile="ECommerce.IntegrationTests/Services/ProductServiceTests.cs" line="84" column="1" />
-      <Breakpoint file="/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce/Services/OrderService.cs" relfile="ECommerce/Services/OrderService.cs" line="61" column="1" />
-      <Breakpoint file="/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce/Services/OrderService.cs" relfile="ECommerce/Services/OrderService.cs" line="60" column="1" />
-      <Breakpoint file="/Users/perbaltzar/GitHub/ECommerce/e-commerce_backend/ECommerce/Services/OrderService.cs" relfile="ECommerce/Services/OrderService.cs" line="49" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.ECommerce PreferredExecutionTarget="MonoDevelop.Default" />
